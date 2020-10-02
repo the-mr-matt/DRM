@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace Winglett.DRM
 {
-    public class DRM : MonoBehaviour
+    public class DRMManager : MonoBehaviour
     {
         #region ----PROPERTIES----
         public static Store Store { get; private set; }

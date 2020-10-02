@@ -10,7 +10,7 @@ namespace Winglett.DRM.Examples
     {
         private void Start()
         {
-            DRM.Store.GetComponent<DRMAchievements>()?.Unlock("");
+            DRMManager.Store.GetComponent<DRMAchievements>()?.Unlock("");
         }
     }
 }
