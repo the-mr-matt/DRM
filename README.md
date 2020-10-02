@@ -18,13 +18,13 @@ This repo provides a set of abstract classes that can be overridden for DRM spec
 #### Examples:
 ```C#
 // Example call to trigger achievements.
-DRM.Store.GetComponent<DRMAchievements>()?.Unlock("Completed Level");
+DRMManager.Store.GetComponent<DRMAchievements>()?.Unlock("Completed Level");
 
 // Example call to submit leaderboard score.
-DRM.Store.GetComponent<DRMLeaderboard>()?.SubmitScore("Level 6 Leaderboard", 10);
+DRMManager.Store.GetComponent<DRMLeaderboard>()?.SubmitScore("Level 6 Leaderboard", 10);
 
 // Example call to set rich presence state.
-DRM.Store.GetComponent<DRMRichPresence>()?.SetState("steam_display", "In level 6");
+DRMManager.Store.GetComponent<DRMRichPresence>()?.SetState("steam_display", "In level 6");
 ```
 
 #### Adding New Stores:
@@ -43,6 +43,8 @@ public static class StandaloneStoreFront
 	    return "Steam";
 	#elseif BUILD_DIST_GOG
 	    return "GOG";
+	#elseif BUILD_DIST_YOUR_DISTRIBUTION_HERE
+	    return "Your Store ID";
 	#endif
 
         return "";
@@ -60,7 +62,7 @@ public class Store_Steam : Store
 
     public Store_Steam()
     {
-        RegisterComponent(new SteamAchievements());
+        RegisterComponent<SteamAchievements>();
     }
 
     protected override DRMInitialize CreateInitializer() => new SteamInitializer();
@@ -68,6 +70,7 @@ public class Store_Steam : Store
 ```
 
 ```C#
+// How to initialize a store
 public class SteamInitializer : DRMInitialize
 {
     public override void Connect() => Debug.Log("Connecting to steam");
@@ -80,6 +83,7 @@ public class SteamInitializer : DRMInitialize
 ```
 
 ```C#
+// How to use components
 public class SteamAchievements : DRMAchievements
 {
     public override void Unlock() => Debug.Log("Achievement Unlocked");
