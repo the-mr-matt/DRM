@@ -6,7 +6,7 @@ namespace Winglett.DRM
 {
     public abstract class DRMAchievements : DRMComponent
     {
-        public abstract void Unlock();
-        public abstract void Clear();
+        public abstract void Unlock(string id);
+        public abstract void Clear(string id);
     }
 }
