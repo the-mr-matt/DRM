@@ -17,6 +17,12 @@ namespace Winglett.DRM
     {
         public int score;
         public int rank;
+        public User user;
+    }
+
+    public class User
+    {
         public string id;
+        public string name;
     }
 }
