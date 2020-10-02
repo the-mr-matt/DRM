@@ -10,6 +10,8 @@ namespace Winglett.DRM
 {
     public class DRMManager : MonoBehaviour
     {
+        private static DRMManager Instance;
+
         #region ----PROPERTIES----
         public static Store Store { get; private set; }
         #endregion
@@ -26,6 +28,18 @@ namespace Winglett.DRM
 
         private async void Awake()
         {
+            /// Singleton
+            if (Instance == null)
+            {
+                Instance = this;
+                transform.parent = null;
+                DontDestroyOnLoad(gameObject);
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
+
             Store = CreateStore();
 
             try { await Store.Initializer.Connect(); }
