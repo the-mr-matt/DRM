@@ -36,6 +36,8 @@ namespace Winglett.DRM
                 return;
             }
 
+            Debug.Log($"Connected to DRM: \"{Store.ID}\"");
+
             OnConnected?.Invoke();
         }
 
