@@ -12,7 +12,7 @@ namespace Winglett.DRM
 
         public Store_Steam()
         {
-            RegisterComponent(new SteamAchievements());
+            RegisterComponent<SteamAchievements>();
         }
 
         protected override DRMInitialize CreateInitializer() => new SteamInitializer();

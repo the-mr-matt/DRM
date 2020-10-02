@@ -2,6 +2,7 @@
 //      (C) Winglett 2020
 // =================================
 
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -23,8 +24,10 @@ namespace Winglett.DRM
 
         protected abstract DRMInitialize CreateInitializer();
 
-        protected void RegisterComponent<T>(T component) where T : DRMComponent
+        protected void RegisterComponent<T>() where T : DRMComponent
         {
+            T component = (T)Activator.CreateInstance(typeof(T));
+
             if (!m_Components.Contains(component))
             {
                 m_Components.Add(component);
