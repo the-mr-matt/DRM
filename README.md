@@ -31,9 +31,27 @@ DRM.Store.GetComponent<DRMRichPresence>()?.SetState("steam_display", "In level 6
 1. A store must derive from `Winglett.DRM.Store` and override the abstract method `CreateInitializer()` and the property `ID`.
 2. Create components deriving from `Winglett.DRM.DRMComponent`.
 3. Create a constructor and call `RegisterComponent()` for any DRM feature you wish to use with this store.
-4. Add the `DRM` script to a gameObject in your scene. Set `EditorStoreFront` to the `ID` of the store you wish to test for. It's important that this `ID` matches the `ID` set in the store script.
+4. Add a custom define to `StandaloneStoreFront.cs` to set the selected Store in the build.
+5. Add the `DRM` script to a gameObject in your scene. Set `EditorStoreFront` to the `ID` of the store you wish to test for. It's important that this `ID` matches the `ID` set in the store script.
 
 ```C#
+public static class StandaloneStoreFront
+{
+    public static string GetStandaloneStoreFrontID()
+    {
+        #if BUILD_DIST_STEAM
+	    return "Steam";
+	#elseif BUILD_DIST_GOG
+	    return "GOG";
+	#endif
+
+        return "";
+    }
+}
+```
+
+```C#
+// How to make a new store
 public class Store_Steam : Store
 {
     #region ----PROPERTIES----
@@ -80,3 +98,6 @@ public abstract class DRMAchievements : DRMComponent
     public abstract void Clear(string id);
 }
 ```
+
+## Super Unity Build
+This repo works well with [Super Unity Build](https://github.com/Chaser324/unity-build). It allows you to setup multiple distributions and check for these in code with custom defines.
