@@ -38,11 +38,7 @@ namespace Winglett.DRM
         {
             var found = m_Components.OfType<T>();
             if (found.Count() > 0) return found.First();
-            else
-            {
-                Debug.LogError($"Component of type \"{typeof(T)}\" not found.");
-                return null;
-            }
+            else return null;
         }
 
         public void InitializeComponents()
