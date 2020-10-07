@@ -44,5 +44,13 @@ namespace Winglett.DRM
                 return null;
             }
         }
+
+        public void InitializeComponents()
+        {
+            for (int i = 0; i < m_Components.Count; i++)
+            {
+                m_Components[i].OnInitialize();
+            }
+        }
     }
 }

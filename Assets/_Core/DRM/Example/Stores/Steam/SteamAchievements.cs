@@ -8,6 +8,11 @@ namespace Winglett.DRM
 {
     public class SteamAchievements : DRMAchievements
     {
+        public override void OnInitialize()
+        {
+            Debug.Log("Initialize Achievements");
+        }
+
         public override void Unlock(string id)
         {
             Debug.Log("Achievement Unlocked");

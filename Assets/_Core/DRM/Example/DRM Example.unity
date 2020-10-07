@@ -193,7 +193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf83db18dbeffaa4fbdb59f312a461e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EditorStoreFront: GOG
+  m_EditorStoreFront: Steam
   m_SubmitPlayerScoresInEditor: 0
 --- !u!4 &826058774
 Transform:

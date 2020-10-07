@@ -4,5 +4,8 @@
 
 namespace Winglett.DRM
 {
-    public abstract class DRMComponent { }
+    public abstract class DRMComponent
+    {
+        public virtual void OnInitialize() { }
+    }
 }
