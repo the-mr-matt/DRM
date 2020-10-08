@@ -57,7 +57,12 @@ namespace Winglett.DRM
             OnConnected?.Invoke();
         }
 
-        private void OnDisable() => Store.Initializer.Disconnect();
+        private void OnDisable()
+        {
+            Store.InitializeComponents();
+            Store.Initializer.Disconnect();
+        }
+
         private void Update() => Store.Initializer.Update();
 
         private Store CreateStore()

@@ -48,5 +48,13 @@ namespace Winglett.DRM
                 m_Components[i].OnInitialize();
             }
         }
+
+        public void DisposeComponents()
+        {
+            for (int i = 0; i < m_Components.Count; i++)
+            {
+                m_Components[i].Dispose();
+            }
+        }
     }
 }
