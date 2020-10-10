@@ -14,6 +14,7 @@ namespace Winglett.DRM
         #region ----PROPERTIES----
         public abstract string ID { get; }
         public DRMInitialize Initializer { get; private set; }
+        public abstract string UserID { get; }
         #endregion
 
         #region ----CONFIG----

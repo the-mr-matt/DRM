@@ -8,6 +8,7 @@ namespace Winglett.DRM
     {
         #region ----PROPERTIES----
         public override string ID => "Steam";
+        public override string UserID => "STEAM USER ID";
         #endregion
 
         public Store_Steam()

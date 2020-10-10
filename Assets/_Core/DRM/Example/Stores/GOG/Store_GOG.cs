@@ -9,6 +9,7 @@ namespace Winglett.DRM
     public class Store_GOG : Store
     {
         public override string ID => "GOG";
+        public override string UserID => "GOG USER ID";
 
         public Store_GOG()
         {
