@@ -59,7 +59,7 @@ namespace Winglett.DRM
 
         private void OnDisable()
         {
-            Store.InitializeComponents();
+            Store.DisposeComponents();
             Store.Initializer.Disconnect();
         }
 
