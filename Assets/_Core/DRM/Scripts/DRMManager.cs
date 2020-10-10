@@ -50,7 +50,7 @@ namespace Winglett.DRM
                 return;
             }
 
-            Store.InitializeComponents();
+            await Store.InitializeComponents();
 
             Debug.Log($"Connected to DRM: \"{Store.ID}\"");
 

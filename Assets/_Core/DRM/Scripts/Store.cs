@@ -5,6 +5,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using UnityEngine;
 
 namespace Winglett.DRM
@@ -42,12 +43,16 @@ namespace Winglett.DRM
             else return null;
         }
 
-        public void InitializeComponents()
+        public async Task InitializeComponents()
         {
+            List<Task> tasks = new List<Task>();
+
             for (int i = 0; i < m_Components.Count; i++)
             {
-                m_Components[i].OnInitialize();
+                tasks.Add(m_Components[i].OnInitialize());
             }
+
+            await Task.WhenAll(tasks);
         }
 
         public void DisposeComponents()

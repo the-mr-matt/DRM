@@ -2,14 +2,16 @@
 //      (C) Winglett 2020
 // =================================
 
+using System.Threading.Tasks;
 using UnityEngine;
 
 namespace Winglett.DRM
 {
     public class SteamAchievements : DRMAchievements
     {
-        public override void OnInitialize()
+        public override async Task OnInitialize()
         {
+            await Task.Delay(4000);
             Debug.Log("Initialize Achievements");
         }
 
