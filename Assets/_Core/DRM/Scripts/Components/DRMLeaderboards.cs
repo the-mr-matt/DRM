@@ -13,6 +13,7 @@ namespace Winglett.DRM
         public abstract Task<LeaderboardEntry[]> GetAllScores(string leaderboardID);
     }
 
+    [System.Serializable]
     public class LeaderboardEntry
     {
         public int score;
@@ -20,6 +21,7 @@ namespace Winglett.DRM
         public User user;
     }
 
+    [System.Serializable]
     public class User
     {
         public string id;
