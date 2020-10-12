@@ -9,6 +9,7 @@ namespace Winglett.DRM
         #region ----PROPERTIES----
         public override string ID => "Steam";
         public override string UserID => "STEAM USER ID";
+        public override bool QuitGameOnFailedInitialization => true;
         #endregion
 
         public Store_Steam()

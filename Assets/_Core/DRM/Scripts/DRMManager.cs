@@ -46,7 +46,7 @@ namespace Winglett.DRM
             catch (System.Exception e)
             {
                 Debug.LogError($"Unable to connect to DRM \"{Store.ID}\" for reason: {e}");
-                Application.Quit();
+                if(Store.QuitGameOnFailedInitialization) Application.Quit();
                 return;
             }
 
