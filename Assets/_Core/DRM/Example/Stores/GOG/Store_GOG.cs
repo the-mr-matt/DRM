@@ -11,6 +11,7 @@ namespace Winglett.DRM
         public override string ID => "GOG";
         public override string UserID => "GOG USER ID";
         public override bool QuitGameOnFailedInitialization => false;
+        public override bool IsLoggedOn => false;
 
         public Store_GOG()
         {

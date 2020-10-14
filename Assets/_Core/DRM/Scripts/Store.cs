@@ -14,6 +14,7 @@ namespace Winglett.DRM
         #region ----PROPERTIES----
         public abstract string ID { get; }
         public abstract string UserID { get; }
+        public abstract bool IsLoggedOn { get; }
         public abstract bool QuitGameOnFailedInitialization { get; }
         public DRMInitialize Initializer { get; private set; }
         #endregion
