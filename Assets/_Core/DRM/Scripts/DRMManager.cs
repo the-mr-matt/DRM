@@ -21,6 +21,10 @@ namespace Winglett.DRM
         [SerializeField] protected bool m_SubmitPlayerScoresInEditor;
         #endregion
 
+        #region ----DATA----
+        private bool m_Initialized;
+        #endregion
+
         #region ----EVENTS----
         public delegate void EventHandler();
         public static event EventHandler OnConnected;
@@ -46,7 +50,7 @@ namespace Winglett.DRM
             catch (System.Exception e)
             {
                 Debug.LogError($"Unable to connect to DRM \"{Store.ID}\" for reason: {e}");
-                if(Store.QuitGameOnFailedInitialization) Application.Quit();
+                if (Store.QuitGameOnFailedInitialization) Application.Quit();
                 return;
             }
 
@@ -55,15 +59,20 @@ namespace Winglett.DRM
             Debug.Log($"Connected to DRM: \"{Store.ID}\"");
 
             OnConnected?.Invoke();
+            m_Initialized = true;
         }
 
         private void OnDisable()
         {
             Store.DisposeComponents();
             Store.Initializer.Disconnect();
+            m_Initialized = false;
         }
 
-        private void Update() => Store.Initializer.Update();
+        private void Update()
+        {
+            if (m_Initialized) Store.Initializer.Update();
+        }
 
         private Store CreateStore()
         {
