@@ -11,6 +11,7 @@ namespace Winglett.DRM
         public abstract Task SubmitScore(string leaderboardID, int score);
         public abstract Task<LeaderboardEntry> GetUserScore(string leaderboardID);
         public abstract Task<LeaderboardEntry[]> GetAllScores(string leaderboardID);
+        public abstract Task<LeaderboardEntry[]> GetAllCachedScores(string leaderboardID);
     }
 
     [System.Serializable]
